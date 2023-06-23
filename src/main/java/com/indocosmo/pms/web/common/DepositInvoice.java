@@ -119,7 +119,7 @@ public class DepositInvoice extends AbstractITextPdfView {
 			cell.setHorizontalAlignment(PdfPCell.ALIGN_RIGHT);
 			java.util.Date rDate = sdf.parse(txn.getTxn_date());
 			java.sql.Date recpDate = new Date(rDate.getTime());
-			cell.setPhrase(new Phrase("Receipt Date: " + simpleDateFormatHotelDate.format(recpDate), font));
+			cell.setPhrase(new Phrase("Receipt Date: " + simpleDateFormatHotelDate.format(recpDate), font1));
 			table.addCell(cell);
 			
 			
@@ -129,7 +129,7 @@ public class DepositInvoice extends AbstractITextPdfView {
 			cell.setRightIndent(27);
 			cell.setPaddingLeft(0);
 			cell.setPhrase(new Phrase("Receipt Time: "
-					+ tf.format(new SimpleDateFormat("yy-MM-dd hh:mm:ss").parse(txn.getTxn_time())), font));
+					+ tf.format(new SimpleDateFormat("yy-MM-dd hh:mm:ss").parse(txn.getTxn_time())), font1));
 			table.addCell(cell);
 			
 			cell.setRightIndent(0);
@@ -139,15 +139,15 @@ public class DepositInvoice extends AbstractITextPdfView {
 			cell.setPhrase(new Phrase("Name of Guest     : " + txn.getFirstName() + " " + txn.getLastName(), font));
 			table.addCell(cell);
 			
-			cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
+			
 			cell.setColspan(1);
 			cell.setRightIndent(0);
 			cell.setPaddingLeft(0);
-			
+			cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
 			if (txn.getRoomNumber() != null && txn.getRoomNumber() != "") {
-				cell.setPhrase(new Phrase("Room No              : " + txn.getRoomNumber(), font));
+				cell.setPhrase(new Phrase("Room No               : " + txn.getRoomNumber(), font));
 			} else {
-				cell.setPhrase(new Phrase("Room No :      Not Assigned", font));
+				cell.setPhrase(new Phrase("Room No               : Not Assigned", font));
 			}
 			table.addCell(cell);
 
