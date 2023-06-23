@@ -147,7 +147,7 @@ public class DepositInvoice extends AbstractITextPdfView {
 			if (txn.getRoomNumber() != null && txn.getRoomNumber() != "") {
 				cell.setPhrase(new Phrase("Room No              : " + txn.getRoomNumber(), font));
 			} else {
-				cell.setPhrase(new Phrase("Room No :      Not Assigned", font));
+				cell.setPhrase(new Phrase("Room No 				: Not Assigned", font));
 			}
 			table.addCell(cell);
 
